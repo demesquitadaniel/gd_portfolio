@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page 03 — Pitch Deck Case Study · DeMesquita Design</title>
+  <link rel="stylesheet" href="portfolio.css">
+  <style>
+    /* ── PAGE 03 LAYOUT ─────────────────────────────────────
+       [HEADER]
+       [CONTENT ROW: left = Brief | right = Approach + tags + result]
+       [IMAGE GRID: 2×2 equal placeholders with lightbox]
+    ──────────────────────────────────────────────────────── */
+
+    .pg3-header {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2.8% var(--pad-page-h) 0 var(--pad-page-l);
+      flex-shrink: 0;
+      gap: 12px;
+    }
+    .pg3-meta {
+      font-size: var(--fs-tag);
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-ghost);
+    }
+
+    /* Two text columns */
+    .pg3-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      padding: 2% var(--pad-page-h) 1.5% var(--pad-page-l);
+      flex-shrink: 0;
+      gap: 0;
+    }
+    .pg3-col-brief {
+      width: 48%;
+      padding-right: 4%;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .pg3-col-approach {
+      flex: 1;
+      padding-left: 4%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .pg3-project-title {
+      font-size: clamp(16px, 2.2vw, 26px);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--text-white);
+      letter-spacing: -0.02em;
+    }
+    .pg3-project-title em { font-style: normal; color: var(--gold); }
+
+    .pg3-project-sub {
+      font-size: clamp(9px, 0.9vw, 11px);
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .info-label {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .info-text {
+      font-size: clamp(11px, 1.05vw, 14px);
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--text-muted);
+    }
+    .info-text strong { color: var(--text-mid); font-weight: 400; }
+
+    .tags-row { display: flex; flex-wrap: wrap; gap: 5px; }
+
+    /* Image grid area */
+    .pg3-gallery {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      padding: 0 var(--pad-page-h) 2.5% var(--pad-page-l);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-height: 0;
+    }
+    .gallery-label {
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-ghost);
+      border-top: 1px solid var(--border);
+      padding-top: 7px;
+      flex-shrink: 0;
+    }
+
+    /* ── Responsive overrides ──────────────────────── */
+    @media (max-width: 900px) {
+      .pg3-header  { padding: 3.5% 5% 0 6%; }
+      .pg3-content { padding: 2.5% 5% 2% 6%; flex-wrap: wrap; gap: 14px; }
+      .pg3-col-brief {
+        width: 100%; border-right: none; padding-right: 0;
+        border-bottom: 1px solid var(--border); padding-bottom: 12px;
+      }
+      .pg3-col-approach { padding-left: 0; }
+      .pg3-project-title { font-size: 22px; }
+      .info-text { font-size: 13px; }
+      .pg3-gallery { padding: 0 5% 3% 6%; }
+    }
+    @media (max-width: 600px) {
+      .pg3-header {
+        padding: 5% 5% 0 6%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+      }
+      .pg3-content { padding: 4% 5% 3% 6%; }
+      .pg3-project-title { font-size: 19px; }
+      .info-text { font-size: 12px; }
+      .pg3-gallery { padding: 0 5% 5% 6%; }
+    }
+    @media (max-width: 380px) {
+      .pg3-project-title { font-size: 17px; }
+      .info-text { font-size: 11px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── LIGHTBOX (shared, sits outside page-wrap) ──────────── -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+  <!--
+    When you add real images, the lightbox will show them full screen.
+    Until then it shows the placeholder below.
+  -->
+  <div class="lightbox-ph" id="lightbox-ph">Image not yet added</div>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="" style="display:none">
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<!-- ── PAGE ───────────────────────────────────────────────── -->
+<div class="page-wrap">
+  <div class="noise"></div>
+  <div class="gold-bar"></div>
+  <div class="line-right"></div>
+
+  <!-- HEADER -->
+  <div class="pg3-header">
+    <div class="section-label">Case Study · Pitch Deck</div>
+    <div class="pg3-meta">Inbound Tourism · Luxury Group Travel · 2024</div>
+  </div>
+
+  <!-- CONTENT ROW -->
+  <div class="pg3-content">
+
+    <!-- Left: The Brief -->
+    <div class="pg3-col-brief">
+      <div class="pg3-project-title">
+        Hartwell Group —<br><em>12-Day Brazil Circuit</em>
+      </div>
+      <div class="pg3-project-sub">
+        18 executives · US-based corporate client · FIT + MICE
+      </div>
+      <div>
+        <div class="info-label">The Brief</div>
+        <p class="info-text">
+          A US-based events agency needed a <strong>fully custom luxury
+          itinerary proposal</strong> for 18 C-suite executives across
+          four Brazilian destinations — Rio de Janeiro, Iguaçu Falls,
+          the Pantanal, and São Paulo.
+          Deadline: 48 hours. Budget tier: ultra-premium.
+        </p>
+      </div>
+    </div>
+
+    <!-- Right: My Approach -->
+    <div class="pg3-col-approach">
+      <div>
+        <div class="info-label">My Approach</div>
+        <p class="info-text">
+          Built a <strong>32-slide branded deck</strong> from scratch:
+          custom cover with client's logo, Compass Brazil overview,
+          full itinerary map, day-by-day breakdowns
+          (morning · lunch · afternoon · dinner · evening),
+          curated photography per destination, and a tiered pricing table.
+          Delivered within 36 hours.
+        </p>
+      </div>
+      <div class="tags-row">
+        <span class="tag">Canva Pro</span>
+        <span class="tag">Photoshop</span>
+        <span class="tag">Image curation</span>
+        <span class="tag">Itinerary design</span>
+        <span class="tag">Pricing tables</span>
+        <span class="tag">Brand consistency</span>
+      </div>
+      <div class="result-bar">
+        <div class="result-num">29%</div>
+        <div class="result-text">
+          Lift in proposal-to-conversion rate across all designed pitch
+          decks — vs. proposals sent without a presentation.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end pg3-content -->
+
+  <!-- IMAGE GRID -->
+  <div class="pg3-gallery">
+    <div class="gallery-label">Deck slides — click to expand</div>
+
+    <div class="img-grid">
+
+      <!-- IMAGES -->
+
+      <div class="img-slot"
+           data-label="Cover Slide"
+           data-caption="Brazil Circuit: 12 Days of Luxury & Culture"
+           onclick="openLightbox(this)">
+           <img src="images/Hartwell Group/1 Cover.jpg" alt="Brazil Circuit: 12 Days of Luxury & Culture">
+      </div>
+
+      <div class="img-slot"
+           data-label="Route Map"
+           data-caption="Itinerary Details: Route Map"
+           onclick="openLightbox(this)">
+           <img src="images/Hartwell Group/2 Route Map.jpg" alt="Itinerary Details: Route Map">
+      </div>
+
+      <div class="img-slot"
+           data-label="Daily Activities"
+           data-caption="Day 3: Rio de Janeiro"
+           onclick="openLightbox(this)">
+           <img src="images/Hartwell Group/3 Daily Activities.jpg" alt="Day 3: Rio de Janeiro">
+      </div>
+
+      <div class="img-slot"
+           data-label="Investment Overview"
+           data-caption="Pricing & investment"
+           onclick="openLightbox(this)">
+           <img src="images/Hartwell Group/4 Investment Overview.jpg" alt="Pricing and investment">
+      </div>
+
+    </div><!-- end img-grid -->
+  </div><!-- end pg3-gallery -->
+
+</div><!-- end page-wrap -->
+
+<!-- ── LIGHTBOX SCRIPT ─────────────────────────────────────── -->
+<script>
+  var lightbox     = document.getElementById('lightbox');
+  var lightboxImg  = document.getElementById('lightbox-img');
+  var lightboxPh   = document.getElementById('lightbox-ph');
+  var lightboxCap  = document.getElementById('lightbox-caption');
+  var closeBtn     = document.getElementById('lightbox-close');
+
+  function openLightbox(slot) {
+    var img     = slot.querySelector('img');
+    var caption = slot.getAttribute('data-caption') || '';
+    var label   = slot.getAttribute('data-label') || 'Image not yet added';
+
+    if (img && img.src) {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt || caption;
+      lightboxImg.style.display = 'block';
+      lightboxPh.style.display  = 'none';
+    } else {
+      lightboxImg.style.display = 'none';
+      lightboxPh.style.display  = 'flex';
+      lightboxPh.textContent    = label;
+    }
+
+    lightboxCap.textContent = caption;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    lightboxImg.src = '';
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', closeLightbox);
+
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
+
+<nav class="page-nav">
+  <!-- PREVIOUS — change href, title, desc. Add class="disabled" if no prev page -->
+  <a class="page-nav-btn prev" href="02_about.html">
+    <span class="page-nav-direction">&#8592; Previous</span>
+    <span class="page-nav-title">About Me</span>
+    <span class="page-nav-desc">Who is Daniel de Mesquita?</span>
+  </a>
+
+  <!-- NEXT — change href, title, desc. Add class="disabled" if no next page -->
+  <a class="page-nav-btn next" href="04_pitch_deck_case_study_2.html">
+    <span class="page-nav-direction">Next &#8594;</span>
+    <span class="page-nav-title">Hotel Case Study</span>
+    <span class="page-nav-desc">Belmond Copacabana Palace</span>
+  </a>
+</nav>
+
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page 04 — Pitch Deck Case Study 2 · DeMesquita Design</title>
+  <link rel="stylesheet" href="portfolio.css">
+  <style>
+    /* ── PAGE 04 LAYOUT — identical structure to page 03 ─────
+       [HEADER]
+       [CONTENT ROW: left = Brief | right = Approach + tags + result]
+       [IMAGE GRID: 2×2 equal placeholders with lightbox]
+    ──────────────────────────────────────────────────────── */
+
+    .pg4-header {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2.8% var(--pad-page-h) 0 var(--pad-page-l);
+      flex-shrink: 0;
+      gap: 12px;
+    }
+    .pg4-meta {
+      font-size: var(--fs-tag);
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-ghost);
+    }
+
+    .pg4-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      padding: 2% var(--pad-page-h) 1.5% var(--pad-page-l);
+      flex-shrink: 0;
+      gap: 0;
+    }
+    .pg4-col-brief {
+      width: 48%;
+      padding-right: 4%;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .pg4-col-approach {
+      flex: 1;
+      padding-left: 4%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .pg4-project-title {
+      font-size: clamp(16px, 2.2vw, 26px);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--text-white);
+      letter-spacing: -0.02em;
+    }
+    .pg4-project-title em { font-style: normal; color: var(--gold); }
+
+    .pg4-project-sub {
+      font-size: clamp(9px, 0.9vw, 11px);
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .info-label {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .info-text {
+      font-size: clamp(11px, 1.05vw, 14px);
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--text-muted);
+    }
+    .info-text strong { color: var(--text-mid); font-weight: 400; }
+
+    .tags-row { display: flex; flex-wrap: wrap; gap: 5px; }
+
+    .pg4-gallery {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      padding: 0 var(--pad-page-h) 2.5% var(--pad-page-l);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-height: 0;
+    }
+    .gallery-label {
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-ghost);
+      border-top: 1px solid var(--border);
+      padding-top: 7px;
+      flex-shrink: 0;
+    }
+
+    /* ── Responsive ──────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .pg4-header  { padding: 3.5% 5% 0 6%; }
+      .pg4-content { padding: 2.5% 5% 2% 6%; flex-wrap: wrap; gap: 14px; }
+      .pg4-col-brief {
+        width: 100%; border-right: none; padding-right: 0;
+        border-bottom: 1px solid var(--border); padding-bottom: 12px;
+      }
+      .pg4-col-approach { padding-left: 0; }
+      .pg4-project-title { font-size: 22px; }
+      .info-text { font-size: 13px; }
+      .pg4-gallery { padding: 0 5% 3% 6%; }
+    }
+    @media (max-width: 600px) {
+      .pg4-header {
+        padding: 5% 5% 0 6%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+      }
+      .pg4-content { padding: 4% 5% 3% 6%; }
+      .pg4-project-title { font-size: 19px; }
+      .info-text { font-size: 12px; }
+      .pg4-gallery { padding: 0 5% 5% 6%; }
+    }
+    @media (max-width: 380px) {
+      .pg4-project-title { font-size: 17px; }
+      .info-text { font-size: 11px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── LIGHTBOX ────────────────────────────────────────────── -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+  <div class="lightbox-ph" id="lightbox-ph">Image not yet added</div>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="" style="display:none">
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<!-- ── PAGE ───────────────────────────────────────────────── -->
+<div class="page-wrap">
+  <div class="noise"></div>
+  <div class="gold-bar"></div>
+  <div class="line-right"></div>
+
+  <!-- HEADER -->
+  <div class="pg4-header">
+    <div class="section-label">Case Study · Hotel Presentation</div>
+    <div class="pg4-meta">Luxury Accommodation · Sales Deck · 2024</div>
+  </div>
+
+  <!-- CONTENT ROW -->
+  <div class="pg4-content">
+
+    <!-- Left: The Brief -->
+    <div class="pg4-col-brief">
+      <div class="pg4-project-title">
+        Belmond Copacabana Palace —<br><em>Luxury Hotel Sales Deck</em>
+      </div>
+      <div class="pg4-project-sub">
+        Property showcase · US &amp; European travel agents · Inbound luxury segment
+      </div>
+      <div>
+        <div class="info-label">The Brief</div>
+        <p class="info-text">
+          Compass Brazil needed a <strong>standalone hotel presentation</strong>
+          to pitch the Belmond Copacabana Palace to high-end US and European
+          travel agents unfamiliar with the property. The deck had to convey
+          the hotel's heritage, room categories, F&amp;B offering, event spaces,
+          and why it belongs in every luxury Brazil itinerary —
+          all without relying on the Belmond brand's own materials.
+        </p>
+      </div>
+    </div>
+
+    <!-- Right: My Approach -->
+    <div class="pg4-col-approach">
+      <div>
+        <div class="info-label">My Approach</div>
+        <p class="info-text">
+          Designed a <strong>20-slide property showcase</strong> structured
+          around the agent's decision journey: opening with Rio de Janeiro
+          context and the hotel's 100-year legacy, followed by curated
+          room-tier spreads (Superior through Penthouse), pool and beachfront
+          lifestyle imagery, dining at Cipriani and Pérgula, meeting &amp;
+          events capacity, and a final rates-on-request contact slide.
+          <strong>Typography and white space were used deliberately</strong>
+          to let the photography breathe — no cluttered layouts, no
+          competing colours. The result felt editorial, not promotional.
+        </p>
+      </div>
+      <div class="tags-row">
+        <span class="tag">Canva Pro</span>
+        <span class="tag">Photoshop</span>
+        <span class="tag">Editorial layout</span>
+        <span class="tag">Image curation</span>
+        <span class="tag">Luxury brand tone</span>
+        <span class="tag">Agent-facing copy</span>
+      </div>
+      <div class="result-bar">
+        <div class="result-num">29%</div>
+        <div class="result-text">
+          Part of the wider pitch deck programme that lifted
+          Compass Brazil's proposal-to-conversion rate —
+          hotel decks cited by agents as key to booking confidence.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end pg4-content -->
+
+  <!-- IMAGE GRID -->
+  <div class="pg4-gallery">
+    <div class="gallery-label">Deck slides — click to expand</div>
+
+    <div class="img-grid">
+
+      <!--     IMAGES      -->
+
+      <div class="img-slot"
+           data-label="Cover"
+           data-caption="Cover — Belmond Copacabana Palace"
+           onclick="openLightbox(this)">
+          <img src="images/Belmond Copa Palace/1 Cover.jpg" alt="Cover — Belmond Copacabana Palace">
+      </div>
+
+      <div class="img-slot"
+           data-label="Room Categories"
+           data-caption="Room Categories Overview"
+           onclick="openLightbox(this)">
+          <img src="images/Belmond Copa Palace/2 Room Categories.jpg" alt="Room Categories Overview">
+      </div>
+
+      <div class="img-slot"
+           data-label="Restaurants"
+           data-caption="Dining — Cipriani & Pérgula"
+           onclick="openLightbox(this)">
+          <img src="images/Belmond Copa Palace/3 Restaurants.jpg" alt="Dining — Cipriani and Pérgula">
+      </div>
+
+      <div class="img-slot"
+           data-label="Ballroom Event"
+           data-caption="Event Spaces"
+           onclick="openLightbox(this)">
+          <img src="images/Belmond Copa Palace/4 Ballroom Event.jpg" alt="Event Spaces"> -->
+      </div>
+
+    </div><!-- end img-grid -->
+  </div><!-- end pg4-gallery -->
+
+</div><!-- end page-wrap -->
+
+<!-- ── PAGE NAVIGATION ─────────────────────────────────────── -->
+<nav class="page-nav">
+
+  <a class="page-nav-btn prev" href="03_pitch_deck_case_study.html">
+    <span class="page-nav-direction">&#8592; Previous</span>
+    <span class="page-nav-title">Pitch Deck Case Study 1</span>
+    <span class="page-nav-desc">Hartwell Group · 12-Day Brazil Circuit</span>
+  </a>
+
+  <!-- Update href and text when page 5 is ready -->
+  <a class="page-nav-btn next" href="05_pitch_deck_case_study_3.html">
+    <span class="page-nav-direction">Next &#8594;</span>
+    <span class="page-nav-title">Enrollment Deck Case Study</span>
+    <span class="page-nav-desc">Meridian Business School · Executive MBA</span>
+  </a>
+
+</nav>
+
+<!-- ── LIGHTBOX SCRIPT ─────────────────────────────────────── -->
+<script>
+  var lightbox    = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightbox-img');
+  var lightboxPh  = document.getElementById('lightbox-ph');
+  var lightboxCap = document.getElementById('lightbox-caption');
+  var closeBtn    = document.getElementById('lightbox-close');
+
+  function openLightbox(slot) {
+    var img     = slot.querySelector('img');
+    var caption = slot.getAttribute('data-caption') || '';
+    var label   = slot.getAttribute('data-label') || 'Image not yet added';
+
+    if (img && img.src) {
+      lightboxImg.src          = img.src;
+      lightboxImg.alt          = img.alt || caption;
+      lightboxImg.style.display = 'block';
+      lightboxPh.style.display  = 'none';
+    } else {
+      lightboxImg.style.display = 'none';
+      lightboxPh.style.display  = 'flex';
+      lightboxPh.textContent    = label;
+    }
+
+    lightboxCap.textContent = caption;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    lightboxImg.src = '';
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', closeLightbox);
+
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
+
+</body>
+</html>
