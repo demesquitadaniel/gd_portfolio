@@ -3,142 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page 05 — Pitch Deck Case Study 3 · DeMesquita Design</title>
+  <title>Meridian Business School · Daniel de Mesquita's Portfolio</title>
   <link rel="stylesheet" href="portfolio.css">
-  <style>
-    /* ── PAGE 05 LAYOUT — same structure as pages 03 & 04 ────
-       [HEADER]
-       [CONTENT ROW: left = Brief | right = Approach + tags + result]
-       [IMAGE GRID: 2×2 equal placeholders with lightbox]
-    ──────────────────────────────────────────────────────── */
-
-    .pg5-header {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 2.8% var(--pad-page-h) 0 var(--pad-page-l);
-      flex-shrink: 0;
-      gap: 12px;
-    }
-    .pg5-meta {
-      font-size: var(--fs-tag);
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-ghost);
-    }
-
-    .pg5-content {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      padding: 2% var(--pad-page-h) 1.5% var(--pad-page-l);
-      flex-shrink: 0;
-      gap: 0;
-    }
-    .pg5-col-brief {
-      width: 48%;
-      padding-right: 4%;
-      border-right: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .pg5-col-approach {
-      flex: 1;
-      padding-left: 4%;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .pg5-project-title {
-      font-size: clamp(16px, 2.2vw, 26px);
-      font-weight: 700;
-      line-height: 1.15;
-      color: var(--text-white);
-      letter-spacing: -0.02em;
-    }
-    .pg5-project-title em { font-style: normal; color: var(--gold); }
-
-    .pg5-project-sub {
-      font-size: clamp(9px, 0.9vw, 11px);
-      font-weight: 300;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-    .info-label {
-      font-size: 9px;
-      font-weight: 500;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 4px;
-    }
-    .info-text {
-      font-size: clamp(11px, 1.05vw, 14px);
-      font-weight: 300;
-      line-height: 1.75;
-      color: var(--text-muted);
-    }
-    .info-text strong { color: var(--text-mid); font-weight: 400; }
-
-    .tags-row { display: flex; flex-wrap: wrap; gap: 5px; }
-
-    .pg5-gallery {
-      position: relative;
-      z-index: 2;
-      flex: 1;
-      padding: 0 var(--pad-page-h) 2.5% var(--pad-page-l);
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      min-height: 0;
-    }
-    .gallery-label {
-      font-size: 9px;
-      font-weight: 400;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--text-ghost);
-      border-top: 1px solid var(--border);
-      padding-top: 7px;
-      flex-shrink: 0;
-    }
-
-    /* ── Responsive ──────────────────────────────────────── */
-    @media (max-width: 900px) {
-      .pg5-header  { padding: 3.5% 5% 0 6%; }
-      .pg5-content { padding: 2.5% 5% 2% 6%; flex-wrap: wrap; gap: 14px; }
-      .pg5-col-brief {
-        width: 100%; border-right: none; padding-right: 0;
-        border-bottom: 1px solid var(--border); padding-bottom: 12px;
-      }
-      .pg5-col-approach { padding-left: 0; }
-      .pg5-project-title { font-size: 22px; }
-      .info-text { font-size: 13px; }
-      .pg5-gallery { padding: 0 5% 3% 6%; }
-    }
-    @media (max-width: 600px) {
-      .pg5-header {
-        padding: 5% 5% 0 6%;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
-      }
-      .pg5-content { padding: 4% 5% 3% 6%; }
-      .pg5-project-title { font-size: 19px; }
-      .info-text { font-size: 12px; }
-      .pg5-gallery { padding: 0 5% 5% 6%; }
-    }
-    @media (max-width: 380px) {
-      .pg5-project-title { font-size: 17px; }
-      .info-text { font-size: 11px; }
-    }
-  </style>
 </head>
 <body>
 
@@ -146,7 +12,7 @@
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
   <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
   <div class="lightbox-ph" id="lightbox-ph">Image not yet added</div>
-  <img class="lightbox-img" id="lightbox-img" src="" alt="" style="display:none">
+  <img class="lightbox-img" id="lightbox-img" src="" alt="">
   <div class="lightbox-caption" id="lightbox-caption"></div>
 </div>
 
@@ -157,22 +23,19 @@
   <div class="line-right"></div>
 
   <!-- HEADER -->
-  <div class="pg5-header">
+  <div class="cs-header">
     <div class="section-label">Case Study · Enrollment Deck</div>
-    <div class="pg5-meta">Higher Education · International Recruitment · 2024</div>
+    <div class="page-header-meta">Higher Education · International Recruitment · 2024</div>
   </div>
 
   <!-- CONTENT ROW -->
-  <div class="pg5-content">
+  <div class="cs-content">
 
-    <!-- Left: The Brief -->
-    <div class="pg5-col-brief">
-      <div class="pg5-project-title">
+    <div class="cs-col-brief">
+      <div class="cs-title">
         Meridian Business School —<br><em>Executive MBA Programme</em>
       </div>
-      <div class="pg5-project-sub">
-        International student recruitment · US, Europe &amp; Latin America markets
-      </div>
+      <div class="cs-sub">International student recruitment · US, Europe &amp; Latin America markets</div>
       <div>
         <div class="info-label">The Brief</div>
         <p class="info-text">
@@ -188,8 +51,7 @@
       </div>
     </div>
 
-    <!-- Right: My Approach -->
-    <div class="pg5-col-approach">
+    <div class="cs-col-approach">
       <div>
         <div class="info-label">My Approach</div>
         <p class="info-text">
@@ -226,68 +88,45 @@
       </div>
     </div>
 
-  </div><!-- end pg5-content -->
+  </div><!-- end cs-content -->
 
   <!-- IMAGE GRID -->
-  <div class="pg5-gallery">
+  <div class="cs-gallery">
     <div class="gallery-label">Deck slides — click to expand</div>
-
     <div class="img-grid">
 
-      <!--
-        IMAGES
-      -->
-
       <div class="img-slot"
-           data-label="Cover & Overview"
+           data-label="Cover &amp; Overview"
            data-caption="Cover &amp; programme overview"
            onclick="openLightbox(this)">
-          <img src="images/Meridian Business School/1 Cover & Overview.jpg" alt="Cover and programme overview">
+        <img src="images/Meridian Business School/1 Cover & Overview.jpg" alt="Cover and programme overview">
       </div>
 
       <div class="img-slot"
-           data-label="Cohort Profile & Outcomes"
+           data-label="Cohort Profile &amp; Outcomes"
            data-caption="Cohort profile &amp; career outcomes data"
            onclick="openLightbox(this)">
-          <img src="images/Meridian Business School/2 Cohort Profile & Outcomes.jpg" alt="Cohort profile and career outcomes data">
+        <img src="images/Meridian Business School/2 Cohort Profile & Outcomes.jpg" alt="Cohort profile and career outcomes data">
       </div>
 
       <div class="img-slot"
            data-label="Curriculum Structure"
            data-caption="Curriculum structure &amp; module breakdown"
            onclick="openLightbox(this)">
-          <img src="images/Meridian Business School/3 Curriculum Structure.jpg" alt="Curriculum structure and module breakdown">
+        <img src="images/Meridian Business School/3 Curriculum Structure.jpg" alt="Curriculum structure and module breakdown">
       </div>
 
       <div class="img-slot"
-           data-label="Faculty Highlights & Application Timeline"
+           data-label="Faculty &amp; Timeline"
            data-caption="Faculty highlights &amp; application timeline"
            onclick="openLightbox(this)">
-          <img src="images/Meridian Business School/4 Faculty Highlights & Application Timeline.jpg" alt="Faculty highlights and application timeline">
+        <img src="images/Meridian Business School/4 Faculty Highlights & Application Timeline.jpg" alt="Faculty highlights and application timeline">
       </div>
 
     </div><!-- end img-grid -->
-  </div><!-- end pg5-gallery -->
+  </div><!-- end cs-gallery -->
 
 </div><!-- end page-wrap -->
-
-<!-- ── PAGE NAVIGATION ─────────────────────────────────────── -->
-<nav class="page-nav">
-
-  <a class="page-nav-btn prev" href="04_pitch_deck_case_study_2.html">
-    <span class="page-nav-direction">&#8592; Previous</span>
-    <span class="page-nav-title">Hotel Case Study</span>
-    <span class="page-nav-desc">Belmond Copacabana Palace</span>
-  </a>
-
-  <!-- Update href and text when page 6 is ready -->
-  <a class="page-nav-btn next disabled" href="#">
-    <span class="page-nav-direction">Next &#8594;</span>
-    <span class="page-nav-title">Coming soon</span>
-    <span class="page-nav-desc">Next section</span>
-  </a>
-
-</nav>
 
 <!-- ── LIGHTBOX SCRIPT ─────────────────────────────────────── -->
 <script>
@@ -301,7 +140,6 @@
     var img     = slot.querySelector('img');
     var caption = slot.getAttribute('data-caption') || '';
     var label   = slot.getAttribute('data-label') || 'Image not yet added';
-
     if (img && img.src) {
       lightboxImg.src           = img.src;
       lightboxImg.alt           = img.alt || caption;
@@ -312,7 +150,6 @@
       lightboxPh.style.display  = 'flex';
       lightboxPh.textContent    = label;
     }
-
     lightboxCap.textContent = caption;
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -321,17 +158,27 @@
   function closeLightbox() {
     lightbox.classList.remove('active');
     lightboxImg.src = '';
+    lightboxImg.style.display = 'none';
     document.body.style.overflow = '';
   }
 
   closeBtn.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', function(e) {
-    if (e.target === lightbox) closeLightbox();
-  });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeLightbox();
-  });
+  lightbox.addEventListener('click', function(e) { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
 </script>
+
+<nav class="page-nav">
+  <a class="page-nav-btn prev" href="04_pitch_deck_case_study_2.html">
+    <span class="page-nav-direction">&#8592; Previous</span>
+    <span class="page-nav-title">Hotel Case Study</span>
+    <span class="page-nav-desc">Belmond Copacabana Palace</span>
+  </a>
+  <a class="page-nav-btn next" href="06_brand_identity.html">
+    <span class="page-nav-direction">Next &#8594;</span>
+    <span class="page-nav-title">Brand Identity</span>
+    <span class="page-nav-desc">Logo Design · Visual Systems</span>
+  </a>
+</nav>
 
 </body>
 </html>
