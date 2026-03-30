@@ -476,3 +476,146 @@ body { background: var(--bg); font-family: 'Inter', sans-serif; }
 @media (max-width: 380px) {
   .sm-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+
+/* ============================================================
+   CONTACT PAGE — Page 08
+   Uses .page-wrap--row (split panels, viewport height)
+   ============================================================ */
+
+.contact-left {
+  width: 55%; flex-shrink: 0;
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+  padding: 7% 8% 6% var(--pad-page-l);
+  border-right: 1px solid var(--border);
+}
+
+.contact-eyebrow {
+  font-size: var(--fs-label);
+  font-weight: 500; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--gold);
+  display: flex; align-items: center; gap: 12px;
+}
+.contact-eyebrow::before {
+  content: ''; width: 24px; height: 1px;
+  background: var(--gold); flex-shrink: 0;
+}
+
+.contact-headline {
+  font-size: clamp(28px, 4.5vw, 58px);
+  font-weight: 700; line-height: 1.05;
+  color: var(--text-white); letter-spacing: -0.03em;
+  margin-top: 5%;
+}
+.contact-headline em { font-style: normal; color: var(--gold); }
+
+.contact-manifesto {
+  font-size: clamp(12px, 1.15vw, 15px);
+  font-weight: 300; line-height: 1.85;
+  color: var(--text-muted); max-width: 78%;
+  margin-top: 6%;
+}
+
+.contact-availability {
+  margin-top: auto; padding-top: 8%;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.contact-avail-label {
+  font-size: 9px; font-weight: 500;
+  letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold);
+}
+.contact-avail-text {
+  font-size: clamp(10px, 1vw, 13px);
+  font-weight: 300; letter-spacing: 0.08em;
+  color: var(--text-muted); line-height: 1.6;
+}
+
+/* Right panel — contact items */
+.contact-right {
+  flex: 1; position: relative; z-index: 1;
+  display: flex; flex-direction: column;
+  justify-content: center;
+  padding: 7% var(--pad-page-h) 6% 8%;
+  gap: 0;
+}
+
+.contact-stack {
+  display: flex; flex-direction: column;
+}
+.contact-item {
+  display: flex; flex-direction: column; gap: 5px;
+  padding: 5% 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+.contact-item:first-child { border-top: 1px solid var(--border); }
+.contact-item:hover { border-color: var(--gold); }
+.contact-item:hover .contact-item-value { color: var(--gold); }
+
+.contact-item-label {
+  font-size: 9px; font-weight: 500;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--text-ghost);
+}
+.contact-item-value {
+  font-size: clamp(12px, 1.3vw, 16px);
+  font-weight: 300; color: var(--text-white);
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+
+/* CV download button — distinct from contact items */
+.contact-cv {
+  margin-top: 10%;
+  display: inline-flex; align-items: center; gap: 12px;
+  border: 1px solid var(--border-mid);
+  border-radius: 4px; padding: 14px 20px;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+  width: fit-content;
+}
+.contact-cv:hover { border-color: var(--gold); background: #111008; }
+.contact-cv-label {
+  display: flex; flex-direction: column; gap: 3px;
+}
+.contact-cv-eyebrow {
+  font-size: 8px; font-weight: 500;
+  letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold);
+}
+.contact-cv-text {
+  font-size: clamp(11px, 1.1vw, 14px);
+  font-weight: 400; color: var(--text-white);
+  letter-spacing: 0.02em;
+}
+.contact-cv-arrow {
+  font-size: 18px; color: var(--gold);
+  margin-left: auto; flex-shrink: 0;
+}
+
+/* Footer signature — bottom of right panel */
+.contact-signature {
+  margin-top: auto; padding-top: 8%;
+  font-size: 9px; font-weight: 400;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--text-ghost);
+}
+
+@media (max-width: 900px) {
+  .contact-left  { width: 50%; padding: 6% 6% 6% 6%; }
+  .contact-right { padding: 6% 5% 6% 6%; }
+  .contact-headline { font-size: clamp(24px, 4vw, 42px); }
+}
+@media (max-width: 600px) {
+  .contact-left  { width: 100%; border-right: none; border-bottom: 1px solid var(--border); padding: 10% 7%; justify-content: flex-start; gap: 24px; }
+  .contact-availability { margin-top: 0; padding-top: 0; }
+  .contact-right { padding: 8% 7%; }
+  .contact-headline { font-size: clamp(26px, 8vw, 40px); }
+  .contact-manifesto { max-width: 100%; }
+  .contact-cv    { width: 100%; }
+}
+@media (max-width: 380px) {
+  .contact-headline { font-size: 24px; }
+}
