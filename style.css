@@ -1,0 +1,291 @@
+/* Core Structural Tokens & Brand Palette */
+:root {
+    --bg-canvas: #fbfbfa;          /* Luxury, warm ivory-cream paper tone */
+    --color-primary: #1c3553;      /* Your deep, corporate AURUM navy blue */
+    --color-secondary: #c4933f;    /* Warm, solid premium matte gold */
+    --color-slate: #4a5568;        /* Slate blue gray for secondary typography */
+    --color-dark: #0f172a;         /* High-contrast ink tone for crisp headlines */
+    --border-subtle: #e2e8f0;      /* Fine metric grid lines */
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Global Reset & Base Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--color-dark);
+    background-color: var(--bg-canvas);
+    line-height: 1.65;
+    padding: 0 24px;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Header Grid Formatting */
+.portfolio-header {
+    padding: 100px 0 50px 0;
+    max-width: 1150px;
+    margin: 0 auto;
+    border-bottom: 2px solid var(--color-primary); /* Bold structural line anchoring the design */
+}
+
+.portfolio-header h1 {
+    font-size: 3.8rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    color: var(--color-primary);
+}
+
+.portfolio-header h2 {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--color-secondary); /* Highlight title using brand gold */
+    margin-top: 12px;
+    letter-spacing: -0.01em;
+}
+
+.location-tax {
+    font-size: 0.95rem;
+    color: var(--color-slate);
+    margin-top: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+/* Call To Action Button Styling */
+.header-links {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 4px;
+    border: 1px solid var(--color-primary);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn:hover {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    transform: translateY(-2px);
+}
+
+.btn.secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+}
+
+.btn.secondary:hover {
+    background-color: var(--color-primary);
+    color: #ffffff;
+}
+
+/* Custom Resume Download Button Utilities */
+.resume-btn-pdf {
+    background-color: #991b1b; /* Sophisticated luxury dark red to signal an elegant PDF link */
+    border-color: #991b1b;
+    color: #ffffff;
+    margin-left: auto; /* Magic layout mechanism: Pushes this button and the next one to the absolute right */
+}
+
+.resume-btn-pdf:hover {
+    background-color: #7f1d1d;
+    border-color: #7f1d1d;
+    transform: translateY(-2px);
+}
+
+.resume-btn-word {
+    background-color: transparent;
+    color: #991b1b; /* Secondary dark-red text link outline styling */
+    border: 1px solid #991b1b;
+}
+
+.resume-btn-word:hover {
+    background-color: #991b1b;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Strategic Intro Context Section */
+.intro-summary {
+    max-width: 1150px;
+    margin: 60px auto;
+}
+
+.intro-summary h3 {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 18px;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+}
+
+.intro-summary p {
+    font-size: 1.25rem;
+    color: var(--color-slate);
+    max-width: 100%; /* Upgraded to 100% to let text expand beautifully across the screen */
+    line-height: 1.7;
+}
+
+.section-divider {
+    border: 0;
+    height: 1px;
+    background: var(--border-subtle);
+    max-width: 1150px;
+    margin: 60px auto;
+}
+
+/* Master Work Layout Grid Section */
+.work-grid-section {
+    max-width: 1150px;
+    margin: 0 auto 120px auto;
+}
+
+.work-grid-section > h3 {
+    font-size: 2.2rem;
+    color: var(--color-primary);
+    margin-bottom: 50px;
+    letter-spacing: -0.03em;
+}
+
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    gap: 100px; /* Generous vertical whitespace breathing room */
+}
+
+/* Symmetric Split Columns */
+.project-card {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr; /* Gives slightly more visual weight to your artwork grid */
+    gap: 60px;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .project-card {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+/* High-End Image Presentation Container */
+.project-visual img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid var(--border-subtle);
+    box-shadow: 0 10px 30px rgba(28, 53, 83, 0.04); /* Soft, brand-tinted drop shadow */
+    display: block;
+}
+
+/* Typography Hierarchy Inside Briefings */
+.project-info h4 {
+    font-size: 1.9rem;
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    font-weight: 700;
+}
+
+.project-tag {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-secondary); /* Bold brand gold accent tags */
+    margin: 8px 0 30px 0;
+    font-weight: 700;
+}
+
+/* Dynamic Case Study Breakdown Rules */
+.case-study-body h5 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 25px;
+    color: var(--color-dark);
+    border-left: 3px solid var(--color-secondary); /* Elegant structural left border tag */
+    padding-left: 10px;
+}
+
+.case-study-body p {
+    color: var(--color-slate);
+    margin-top: 8px;
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+    text-align: justify;
+}
+
+/* Tailored Design Operations Container Layer */
+.project-card.mapping-ai {
+    background-color: #111115; /* Dark-room engineering mode backdrop code block override */
+    padding: 50px;
+    border-radius: 8px;
+    border: 1px solid #222226;
+    grid-template-columns: 0.91fr 1.09fr; /* Shifting column weights for the vertical chart layout */
+}
+
+@media (max-width: 900px) {
+    .project-card.mapping-ai {
+        padding: 24px;
+        grid-template-columns: 1fr;
+    }
+}
+
+.project-card.mapping-ai h4 {
+    color: #ffffff;
+}
+
+.project-card.mapping-ai h5 {
+    color: #e2e8f0;
+    border-left-color: #55ebd3; /* Giving your engineering step an active neon cyan anchor point line */
+}
+
+.project-card.mapping-ai p {
+    color: #94a3b8;
+}
+
+/* Master Footer Blueprint */
+.portfolio-footer {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 50px 0;
+    border-top: 1px solid var(--border-subtle);
+    text-align: center;
+    color: var(--color-slate);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Responsive optimization to handle the button block layout cleanly across mobile screens */
+@media (max-width: 640px) {
+    .header-links {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .btn {
+        text-align: center;
+        width: 100%;
+    }
+    .resume-btn-pdf {
+        margin-left: 0; /* Resets the split behavior on small screens to maintain clean stacking verticality */
+    }
+}
